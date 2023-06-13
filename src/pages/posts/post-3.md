@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Mon troisième article'
 author: 'Thomas ROBERT'
 description: "J'ai eu quelques difficultés, mais demander à la communauté m'a vraiment aidé !"

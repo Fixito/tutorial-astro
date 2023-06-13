@@ -1,5 +1,6 @@
 ---
-title: 'Mon premier article de blog'
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'Mon premier article'
 pubDate: 2023-06-12
 description: 'Ceci est le premier article de mon nouveau blog Astro.'
 author: 'Thomas ROBERT'
@@ -8,10 +9,6 @@ image:
   alt: 'Le logo Astro complet.'
 tags: ['astro', 'blogging', 'apprendre en public']
 ---
-
-# Mon premier article
-
-Publié le : 2023-06-12
 
 Bienvenue sur mon _nouveau blog_ sur l'apprentissage d'Astro ! Ici, je partagerai mon parcours d'apprentissage alors que je construis un nouveau site Web.
 

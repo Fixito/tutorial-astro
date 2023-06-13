@@ -1,6 +1,5 @@
 ---
-import '../styles/global.css';
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = 'À propos de moi';
 
 const identity = {
@@ -13,7 +12,7 @@ const identity = {
 const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro'];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = 'navy';
@@ -21,73 +20,60 @@ const fontWeight = 'bold';
 const textCase = 'uppercase';
 ---
 
-<html lang='fr'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-  </head>
-  <body>
-    <a href='/'>Accueil</a>
-    <a href='/about/'>À propos</a>
-    <a href='/blog'>Blog</a>
-
-    <h1>{pageTitle}</h1>
-    <h2>... et de mon nouveau site Astro !</h2>
-    <p>
-      Je travaille sur le tutoriel d'introduction d'Astro. C'est la deuxième
-      page sur mon site web, et c'est la première que j'ai construite moi-même !
-    </p>
-    <p>
-      Ce site sera mis à jour au fur et à mesure que je terminerai le
-      didacticiel, alors continuez à revenir et voir comment se passe mon
-      voyage!
-    </p>
-    <p>Voici quelques informations sur moi :</p>
-    <ul>
-      <li>Je m'appelle {identity.firstName}.</li>
-      <li>
-        Je vit en {identity.country} et je travaille en tant que {
-          identity.occupation
-        }.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Deux de mes hobbies sont : {identity.hobbies[0]} et{' '}
-            {identity.hobbies[1]}.
-          </li>
-        )
-      }
-    </ul>
-    <p>Mes compétences sont :</p>
-    <ul>
-      {skills.map((skill) => <li class='skill'>{skill}</li>)}
-    </ul>
-
-    {happy && <p>Je suis heureux d'apprendre Astro !</p>}
-
-    {finished && <p>J'ai terminé ce tuto !</p>}
-
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... et de mon nouveau site Astro !</h2>
+  <p>
+    Je travaille sur le tutoriel d'introduction d'Astro. C'est la deuxième page
+    sur mon site web, et c'est la première que j'ai construite moi-même !
+  </p>
+  <p>
+    Ce site sera mis à jour au fur et à mesure que je terminerai le didacticiel,
+    alors continuez à revenir et voir comment se passe mon voyage!
+  </p>
+  <p>Voici quelques informations sur moi :</p>
+  <ul>
+    <li>Je m'appelle {identity.firstName}.</li>
+    <li>
+      Je vit en {identity.country} et je travaille en tant que {
+        identity.occupation
+      }.
+    </li>
     {
-      goal === 3 ? (
-        <p>Mon objectif est de finir en 3 jours.</p>
-      ) : (
-        <p>Mon objectif n'est pas de 3 jours.</p>
+      identity.hobbies.length >= 2 && (
+        <li>
+          Deux de mes hobbies sont : {identity.hobbies[0]} et{' '}
+          {identity.hobbies[1]}.
+        </li>
       )
     }
-  </body>
-</html>
+  </ul>
+  <p>Mes compétences sont :</p>
+  <ul>
+    {skills.map((skill) => <li class='skill'>{skill}</li>)}
+  </ul>
+
+  {happy && <p>Je suis heureux d'apprendre Astro !</p>}
+
+  {finished && <p>J'ai terminé ce tuto !</p>}
+
+  {
+    goal === 3 ? (
+      <p>Mon objectif est de finir en 3 jours.</p>
+    ) : (
+      <p>Mon objectif n'est pas de 3 jours.</p>
+    )
+  }
+</BaseLayout>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>

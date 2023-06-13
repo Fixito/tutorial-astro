@@ -2,8 +2,24 @@
   box-sizing: border-box;
 }
 
-body {
+html {
   background-color: #f1f5f9;
+}
+
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+html.dark .skill {
+  color: lightblue;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+body {
   font-family: system-ui, sans-serif;
   line-height: 1.5;
   width: 100%;
@@ -12,7 +28,87 @@ body {
   padding: 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: #0d0950;
+}
+
+html.dark a {
+  color: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* nav styles */
+.hamburger {
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
+.nav-links {
+  background-color: #ff9776;
+  width: 100%;
+  top: 5rem;
+  left: 48px;
+  margin: 0;
+  display: none;
+}
+
+.nav-links a {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover,
+a:focus {
+  background-color: #ff9776;
+}
+
+.expanded {
+  display: unset;
+}
+
+@media screen and (min-width: 576px) {
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    background: none;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
 }

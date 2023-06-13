@@ -1,0 +1,22 @@
+---
+import Social from '../components/Social.astro';
+const platform = 'github';
+const username = 'Fixito';
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  <p>
+    En savoir plus sur mes projets sur <Social
+      platform={platform}
+      username={username}
+    /> !
+  </p>
+</footer>
